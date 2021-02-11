@@ -1,3 +1,7 @@
+[![personal-webpage](https://circleci.com/gh/ditu474/personal-webpage.svg?style=svg)](https://app.circleci.com/pipelines/github/ditu474/personal-webpage)
+<space><space>
+[![Coverage Status](https://coveralls.io/repos/github/ditu474/personal-webpage/badge.svg?branch=main)](https://coveralls.io/github/ditu474/personal-webpage?branch=main)
+
 # PersonalWebpage
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.1.
