@@ -2,6 +2,7 @@
 <space><space>
 [![Coverage Status](https://coveralls.io/repos/github/ditu474/personal-webpage/badge.svg?branch=main)](https://coveralls.io/github/ditu474/personal-webpage?branch=main)
 ![Angular Version](https://img.shields.io/badge/angular-v11-326839)
+[![Kanban Board](https://img.shields.io/badge/Kanban-View%20Project%20Status-blue)](https://github.com/ditu474/personal-webpage/projects/1)
 
 ## Mockup
 
