@@ -1,0 +1,24 @@
+.navbar {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 0;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+.primary-nav-el {
+  padding: 0.5em;
+  margin: 0 1em;
+  text-decoration: none;
+  color: #00c7f7;
+  border: 2px solid #00c7f7;
+  border-radius: 20px;
+  font-weight: bold;
+}
