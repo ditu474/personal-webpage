@@ -1,6 +1,18 @@
+#toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
 .navbar {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  height: 4.4rem;
+  height: 4rem;
+  background-color: white;
+}
+
+.logo > img {
+  display: block;
 }
 
 .menu {
@@ -26,4 +38,39 @@
 .primary-nav-el:hover {
   color: white;
   background-color: #00c7f7;
+}
+
+.mobile-menu-icon:hover {
+  cursor: pointer;
+}
+
+.mobile-menu {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.mobile-menu > ul {
+  margin: 0;
+  padding: 0;
+}
+
+.mobile-menu-item {
+  list-style: none;
+}
+
+.mobile-menu-item > a {
+  text-decoration: none;
+  display: block;
+  color: white;
+  padding: 0.3em 0;
+}
+
+.mobile-menu-item > a:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 280px) {
+  .primary-nav-el {
+    font-size: 0.8em;
+  }
 }

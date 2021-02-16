@@ -11,6 +11,17 @@ body {
 }
 
 .container {
-  max-width: 1920;
+  max-width: 1920px;
   margin: 0 1.2rem;
+}
+
+section {
+  height: 100vh;
+  max-height: 1080px;
+}
+
+@media (max-height: 700px) {
+  section {
+    height: 700px;
+  }
 }
