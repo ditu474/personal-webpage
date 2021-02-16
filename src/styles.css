@@ -15,13 +15,14 @@ body {
   margin: 0 1.2rem;
 }
 
-section {
-  height: 100vh;
-  max-height: 1080px;
+@media (min-width: 1000px) {
+  .container {
+    margin: 0 2rem;
+  }
 }
 
-@media (max-height: 700px) {
-  section {
-    height: 700px;
+@media (min-width: 1921px) {
+  .container {
+    margin: 0 auto;
   }
 }

@@ -69,8 +69,66 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.desktop-menu {
+  display: none;
+}
+
 @media (max-width: 280px) {
   .primary-nav-el {
     font-size: 0.8em;
+  }
+}
+
+@media (min-width: 800px) {
+  .mobile-menu {
+    display: none;
+  }
+
+  .mobile-menu-icon {
+    display: none;
+  }
+
+  .desktop-menu {
+    display: inline;
+  }
+
+  .desktop-menu > ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+
+  .desktop-menu-item {
+    list-style: none;
+  }
+
+  .desktop-menu-item > a {
+    text-decoration: none;
+    color: black;
+    margin-left: 0.5em;
+    padding: 0.7em;
+  }
+
+  .desktop-menu-item > a:hover {
+    background-color: rgba(150, 150, 150, 0.5);
+    border-radius: 10px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .navbar {
+    height: 4.5rem;
+  }
+
+  .logo > img {
+    height: 3.5em;
+  }
+
+  .desktop-menu-item > a {
+    font-size: 1.2em;
+  }
+
+  .primary-nav-el {
+    font-size: 1.2em;
   }
 }

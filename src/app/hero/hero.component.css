@@ -4,15 +4,15 @@
   align-items: center;
   align-content: center;
   justify-content: center;
+  margin-top: 6rem;
 }
 
 .profile-picture {
   height: 200px;
-  width: 200px;
 }
 
 .title {
-  font-size: 2em;
+  font-size: 2.5em;
   font-family: "Yellowtail";
   margin: 0.3em 0 0 0;
   padding-bottom: 0.5rem;
@@ -27,6 +27,10 @@
   margin-right: 1em;
 }
 
+.center-button {
+  text-align: center;
+}
+
 .primary-button {
   font-family: "Poppins";
   border: none;
@@ -36,10 +40,81 @@
   padding: 15px;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  text-decoration: none;
 }
 
 .primary-button:hover {
   color: #00c7f7;
   background-color: white;
   cursor: pointer;
+}
+
+@media (min-width: 1000px) {
+  #hero {
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+  }
+
+  .profile-picture {
+    height: 350px;
+  }
+
+  .title {
+    font-size: 3.5em;
+  }
+
+  .hero-info {
+    max-width: 40%;
+  }
+
+  .hero-info > p {
+    font-size: 1.3em;
+  }
+
+  .icons img {
+    height: 40px;
+  }
+
+  .icons {
+    margin-bottom: 2em;
+  }
+
+  .primary-button {
+    font-size: 1.3em;
+  }
+}
+
+@media (min-height: 800px) {
+  .hero-info {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-info > p {
+    font-size: 1.5em;
+  }
+}
+
+@media (min-width: 1400px) {
+  .profile-picture {
+    height: 400px;
+  }
+
+  .title {
+    font-size: 4em;
+  }
+
+  .icons img {
+    height: 50px;
+  }
+
+  .hero-info > p {
+    font-size: 1.5em;
+  }
+
+  .primary-button {
+    font-size: 1.5em;
+  }
 }
