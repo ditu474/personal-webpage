@@ -1,10 +1,10 @@
-#hero {
+#home {
   display: flex;
   flex-direction: column;
   align-items: center;
   align-content: center;
   justify-content: center;
-  margin-top: 6rem;
+  padding-top: 6rem;
 }
 
 .profile-picture {
@@ -29,24 +29,6 @@
 
 .center-button {
   text-align: center;
-}
-
-.primary-button {
-  font-family: "Poppins";
-  border: none;
-  background-color: #00c7f7;
-  border: 1px solid #00c7f7;
-  color: white;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  text-decoration: none;
-}
-
-.primary-button:hover {
-  color: #00c7f7;
-  background-color: white;
-  cursor: pointer;
 }
 
 @media (min-width: 1000px) {
@@ -78,10 +60,6 @@
   .icons {
     margin-bottom: 2em;
   }
-
-  .primary-button {
-    font-size: 1.3em;
-  }
 }
 
 @media (min-height: 800px) {
@@ -111,10 +89,6 @@
   }
 
   .hero-info > p {
-    font-size: 1.5em;
-  }
-
-  .primary-button {
     font-size: 1.5em;
   }
 }

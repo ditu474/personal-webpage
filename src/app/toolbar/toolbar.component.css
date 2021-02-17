@@ -46,7 +46,7 @@
 
 .mobile-menu {
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .mobile-menu > ul {
@@ -60,13 +60,14 @@
 
 .mobile-menu-item > a {
   text-decoration: none;
+  font-size: 1.2em;
   display: block;
-  color: white;
+  color: #00c7f7;
   padding: 0.3em 0;
 }
 
 .mobile-menu-item > a:hover {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .desktop-menu {

@@ -1,0 +1,25 @@
+div {
+  display: grid;
+  grid-template-columns: 40% 60%;
+}
+
+.label {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  font-weight: bold;
+}
+
+.content {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+p {
+  margin: 0;
+}
+
+div {
+  margin-bottom: 1em;
+}

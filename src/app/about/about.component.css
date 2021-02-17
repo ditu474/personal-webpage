@@ -1,0 +1,17 @@
+#about {
+  background-color: white;
+}
+
+.personal-info {
+  max-width: 420px;
+}
+
+.technologies {
+  display: none;
+}
+
+@media (min-width: 800px) {
+  .technologies {
+    display: inline;
+  }
+}
