@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { PrimaryButtonComponent } from '../primary-button/primary-button.component';
+import { SectionTitleComponent } from '../section-title/section-title.component';
 import { AboutComponent } from './about.component';
+import { PersonalDetailComponent } from './personal-detail/personal-detail.component';
 
 describe('AboutComponent', () => {
   let component: AboutComponent;
@@ -8,9 +10,13 @@ describe('AboutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AboutComponent ]
-    })
-    .compileComponents();
+      declarations: [
+        AboutComponent,
+        PersonalDetailComponent,
+        PrimaryButtonComponent,
+        SectionTitleComponent,
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {

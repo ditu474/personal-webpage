@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { PrimaryButtonComponent } from '../primary-button/primary-button.component';
 import { HeroComponent } from './hero.component';
 
 describe('HeroComponent', () => {
@@ -7,7 +8,7 @@ describe('HeroComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HeroComponent],
+      declarations: [HeroComponent, PrimaryButtonComponent],
     }).compileComponents();
   });
 
@@ -35,6 +36,6 @@ describe('HeroComponent', () => {
 
   it('should display a primary button', () => {
     const element: HTMLElement = fixture.nativeElement;
-    expect(element.querySelector('.primary-button')).toBeTruthy();
+    expect(element.querySelector('app-primary-button')).toBeTruthy();
   });
 });
