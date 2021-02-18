@@ -74,13 +74,13 @@
   display: none;
 }
 
-@media (max-width: 280px) {
+@media only screen and (max-width: 280px) {
   .primary-nav-el {
     font-size: 0.8em;
   }
 }
 
-@media (min-width: 800px) {
+@media only screen and (min-width: 800px) {
   .mobile-menu {
     display: none;
   }
@@ -116,7 +116,7 @@
   }
 }
 
-@media (min-width: 1000px) {
+@media only screen and (min-width: 1000px) {
   .navbar {
     height: 4.5rem;
   }

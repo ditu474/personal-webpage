@@ -5,8 +5,10 @@ a {
   color: white;
   padding: 15px;
   border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   text-decoration: none;
+  display: flex;
+  width: fit-content;
 }
 
 a:hover {
@@ -15,13 +17,13 @@ a:hover {
   cursor: pointer;
 }
 
-@media (min-width: 1000px) {
+@media only screen and (min-width: 1000px) {
   a {
     font-size: 1.3em;
   }
 }
 
-@media (min-width: 1400px) {
+@media only screen and (min-width: 1400px) {
   a {
     font-size: 1.5em;
   }

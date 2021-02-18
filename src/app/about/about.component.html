@@ -1,6 +1,6 @@
 <section id="about">
   <div class="container">
-    <h2>About Me</h2>
+    <app-section-title>About Me</app-section-title>
     <p>
       I am currently in 7th semester of computer engineering at Politécnico JIC,
       I start learning by myself software development (specifically application
@@ -14,27 +14,23 @@
       <div class="personal-info">
         <h3>Personal Details</h3>
         <app-personal-detail
-          label="name"
-          content="Daniel Ramirez"
-        ></app-personal-detail>
-        <app-personal-detail label="age" content="22"></app-personal-detail>
-        <app-personal-detail
-          label="location"
-          content="Colombia, La Estrella"
-        ></app-personal-detail>
-        <app-personal-detail
-          label="email"
-          content="danielrg0322@gmail.com"
-        ></app-personal-detail>
-        <app-personal-detail
-          label="experience"
-          content="None"
+          *ngFor="let item of personalDetails | keyvalue"
+          [label]="item.key"
+          [content]="item.value"
         ></app-personal-detail>
       </div>
-      <div class="technologies">test</div>
+      <div class="technologies">
+        <h3>Technologies I have used</h3>
+        <ul>
+          <li *ngFor="let technolgie of technologies">{{ technolgie }}</li>
+        </ul>
+      </div>
     </div>
-    <app-primary-button href="assets/test.pdf" [isDownload]="true" filename="CV"
-      >Download CV</app-primary-button
-    >
+    <div class="center-button">
+      <app-primary-button href="assets/test.pdf" filename="CV"
+        ><div>Download CV</div>
+        <img src="assets/icons/download-file.svg" alt="download file"
+      /></app-primary-button>
+    </div>
   </div>
 </section>

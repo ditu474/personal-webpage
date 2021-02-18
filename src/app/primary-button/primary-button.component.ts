@@ -5,8 +5,8 @@ import { Component, Input } from '@angular/core';
   template: `
     <a
       [href]="href"
-      [attr.download]="isDownload ? filename : null"
-      [attr.target]="isDownload ? '_blank' : null"
+      [attr.download]="filename.length > 0 ? filename : null"
+      [attr.target]="filename.length > 0 ? '_blank' : null"
       ><ng-content></ng-content>
     </a>
   `,
@@ -14,6 +14,5 @@ import { Component, Input } from '@angular/core';
 })
 export class PrimaryButtonComponent {
   @Input() href!: string;
-  @Input() isDownload: boolean = false;
-  @Input() filename!: string;
+  @Input() filename: string = '';
 }
