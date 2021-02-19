@@ -22,7 +22,12 @@
       <div class="technologies">
         <h3>Technologies I have used</h3>
         <ul>
-          <li *ngFor="let technolgie of technologies">{{ technolgie }}</li>
+          <li
+            class="technologies-items"
+            *ngFor="let technolgie of technologies"
+          >
+            {{ technolgie }}
+          </li>
         </ul>
       </div>
     </div>

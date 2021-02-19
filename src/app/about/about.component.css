@@ -19,10 +19,42 @@
   max-width: 420px;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  margin-bottom: 1em;
+  padding: 0;
+}
+
+.technologies-items {
+  position: relative;
+  padding-left: 2em;
+}
+
+.technologies-items::before {
+  content: "";
+  height: 20px;
+  width: 20px;
+  background-image: url("/assets/icons/point.svg");
+  position: absolute;
+  left: 0;
+}
+
 app-primary-button img {
   height: 20px;
   margin-left: 10px;
 }
 
 @media only screen and (min-width: 800px) {
+  .info {
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+  }
+
+  .info h3 {
+    text-align: start;
+    font-size: 1.3em;
+    margin-bottom: 1em;
+  }
 }
