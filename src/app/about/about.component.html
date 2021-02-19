@@ -1,0 +1,41 @@
+<section id="about">
+  <div class="container">
+    <app-section-title>About Me</app-section-title>
+    <p>
+      I am currently in 7th semester of computer engineering at Politécnico JIC,
+      I start learning by myself software development (specifically application
+      development) since March 2020 when the pandemic hit my city. I am
+      passionate about clean code, the cloud and having a good development
+      lifecycle when I am building my ideas. Since I was a child I always wanted
+      to build things that make people’s lives easier and generate value for the
+      world.
+    </p>
+    <div class="info">
+      <div class="personal-info">
+        <h3>Personal Details</h3>
+        <app-personal-detail
+          *ngFor="let item of personalDetails | keyvalue"
+          [label]="item.key"
+          [content]="item.value"
+        ></app-personal-detail>
+      </div>
+      <div class="technologies">
+        <h3>Technologies I have used</h3>
+        <ul>
+          <li
+            class="technologies-items"
+            *ngFor="let technolgie of technologies"
+          >
+            {{ technolgie }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="center-button">
+      <app-primary-button href="assets/test.pdf" filename="CV"
+        ><div>Download CV</div>
+        <img src="assets/icons/download-file.svg" alt="download file"
+      /></app-primary-button>
+    </div>
+  </div>
+</section>
