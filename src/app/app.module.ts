@@ -18,7 +18,7 @@ import { SectionTitleComponent } from './section-title/section-title.component';
     PrimaryButtonComponent,
     SectionTitleComponent,
   ],
-  imports: [BrowserModule],
+  imports: [BrowserModule.withServerTransition({ appId: 'serverApp' })],
   providers: [],
   bootstrap: [AppComponent],
 })
