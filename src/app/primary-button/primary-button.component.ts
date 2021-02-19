@@ -14,5 +14,5 @@ import { Component, Input } from '@angular/core';
 })
 export class PrimaryButtonComponent {
   @Input() href!: string;
-  @Input() filename: string = '';
+  @Input() filename = '';
 }
