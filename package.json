@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "npm run serve:ssr",
+    "dev": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -11,7 +12,8 @@
     "dev:ssr": "ng run personal-webpage:serve-ssr",
     "serve:ssr": "node dist/personal-webpage/server/main.js",
     "build:ssr": "ng build --prod && ng run personal-webpage:server:production",
-    "prerender": "ng run personal-webpage:prerender"
+    "prerender": "ng run personal-webpage:prerender",
+    "deploy": "npm run build:ssr && gcloud app deploy"
   },
   "private": true,
   "dependencies": {

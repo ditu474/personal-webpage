@@ -1,5 +1,4 @@
 a {
-  border: none;
   background-color: #00c7f7;
   border: 1px solid #00c7f7;
   color: white;
@@ -7,8 +6,6 @@ a {
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   text-decoration: none;
-  display: flex;
-  width: fit-content;
 }
 
 a:hover {
