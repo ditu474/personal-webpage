@@ -41,10 +41,10 @@ commands:
   build:
     description: "Build angular app and persist files"
     steps:
-      - checkout
       - run:
           name: Create SSR App
           command: npm run build:ssr
+      - run: mkdir /tmp/project
       - persist_to_workspace:
           root: /tmp/project
           paths:
@@ -77,10 +77,14 @@ jobs:
       - lint
       - test
       - store
+  build:
+    docker:
+      - image: circleci/node:lts
+    steps:
       - build
   deploy:
     docker:
-      - image: google/cloud-sdk
+      - image: google/cloud-sdk:slim
     steps:
       - deploy
 
@@ -89,4 +93,9 @@ workflows:
   Base Workflow:
     jobs:
       - default
-      - deploy
+      - build:
+          requires:
+            - default
+      - deploy:
+          requires:
+            - build
