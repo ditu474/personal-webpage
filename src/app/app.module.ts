@@ -5,8 +5,8 @@ import { PersonalDetailComponent } from './about/personal-detail/personal-detail
 import { AppComponent } from './app.component';
 import { HeroComponent } from './hero/hero.component';
 import { PrimaryButtonComponent } from './primary-button/primary-button.component';
-import { ToolbarComponent } from './toolbar/toolbar.component';
 import { SectionTitleComponent } from './section-title/section-title.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({
   declarations: [

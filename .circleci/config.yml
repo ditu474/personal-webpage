@@ -1,31 +1,114 @@
 version: 2.1
 orbs:
   coveralls: coveralls/coveralls@1.0.4
-jobs:
-  build:
-    working_directory: ~/my-project
-    docker:
-      - image: circleci/node:10-browsers
+commands:
+  install_dependecies:
+    description: "Install project dependecies"
     steps:
       - checkout
       - restore_cache:
-          key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
-      - run: npm install
+          key: project-{{ checksum "package-lock.json" }}
+      - run:
+          name: Installing dependecies
+          command: npm install
       - save_cache:
-          key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          key: project-{{ checksum "package-lock.json" }}
           paths:
             - "node_modules"
+  lint:
+    description: "Check for code linting errors"
+    steps:
       - run:
           name: Lint
           command: npm run lint
+  test:
+    description: "Run unit tests and e2e tests"
+    steps:
       - run:
           name: Unit Test
           command: npm run test -- --watch=false --code-coverage
-      #- run:
-      #    name: End to End Test
-      #    command: npm run e2e
+      - run:
+          name: End to End Test
+          command: npm run e2e
+  store:
+    description: "Store artifacts and test results"
+    steps:
       - store_test_results:
           path: ./test_results
       - store_artifacts:
           path: ./coverage
       - coveralls/upload
+  build:
+    description: "Build angular app and persist files"
+    steps:
+      - run:
+          name: Create SSR App
+          command: npm run build:ssr
+      - run:
+          name: Move compiled app to workspace
+          command: |
+            mkdir /tmp/workspace
+            mv dist /tmp/workspace/
+            mv app.yaml /tmp/workspace/
+            mv package.json /tmp/workspace/
+      - persist_to_workspace:
+          root: /tmp/workspace
+          paths:
+            - dist
+            - app.yaml
+            - package.json
+  deploy:
+    description: "Deploy SSR App to App Engine"
+    steps:
+      - attach_workspace:
+          at: /tmp/workspace
+      - run:
+          name: Deploy to Google Cloud App Engine
+          command: |
+            cd /tmp/workspace
+            echo ${GCLOUD_SERVICE_KEY} > /tmp/sa_key.json
+            gcloud auth activate-service-account --key-file=/tmp/sa_key.json
+            rm /tmp/sa_key.json
+            gcloud config set project ${GCLOUD_PROJECT_ID}
+            gcloud config set compute/zone ${GCLOUD_COMPUTE_ZONE}
+            gcloud app deploy
+jobs:
+  tests:
+    docker:
+      - image: circleci/node:lts-browsers
+    steps:
+      - install_dependecies
+      - lint
+      - test
+      - store
+  build:
+    docker:
+      - image: circleci/node:lts
+    steps:
+      - install_dependecies
+      - build
+  deploy:
+    docker:
+      - image: google/cloud-sdk:slim
+    steps:
+      - deploy
+
+workflows:
+  version: 2
+  Base Workflow:
+    jobs:
+      - tests
+      - build:
+          filters:
+            branches:
+              only:
+                - main
+          requires:
+            - tests
+      - deploy:
+          filters:
+            branches:
+              only:
+                - main
+          requires:
+            - build
