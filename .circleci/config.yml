@@ -69,23 +69,14 @@ commands:
             gcloud --quiet config set compute/zone ${GCLOUD_COMPUTE_ZONE}
             gcloud --quiet app deploy
 jobs:
-  initialize:
-    docker:
-      - image: circleci/node:lts-browsers
-    steps:
-      - install_dependecies
   default:
     docker:
       - image: circleci/node:lts-browsers
     steps:
+      - install_dependecies
       - lint
       - test
       - store
-  build:
-    docker:
-      - image: circleci/node:lts
-    steps:
-      - build
   deploy:
     docker:
       - image: google/cloud-sdk
@@ -96,17 +87,7 @@ workflows:
   version: 2
   Base Workflow:
     jobs:
-      - initialize
       - default
   Build And Deploy Workflow:
     jobs:
-      - build:
-          filters:
-            branches:
-              only:
-                - main
-      - deploy:
-          filters:
-            branches:
-              only:
-                - main
+      - deploy
