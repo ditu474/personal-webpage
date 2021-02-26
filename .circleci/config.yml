@@ -49,14 +49,12 @@ commands:
           command: |
             mkdir /tmp/workspace
             mv dist /tmp/workspace/
-            mv .gcloudignore /tmp/workspace/
             mv app.yaml /tmp/workspace/
             mv package.json /tmp/workspace/
       - persist_to_workspace:
           root: /tmp/workspace
           paths:
             - dist
-            - .gcloudignore
             - app.yaml
             - package.json
   deploy:
@@ -75,7 +73,7 @@ commands:
             gcloud config set compute/zone ${GCLOUD_COMPUTE_ZONE}
             gcloud app deploy
 jobs:
-  default:
+  tests:
     docker:
       - image: circleci/node:lts-browsers
     steps:
@@ -99,10 +97,18 @@ workflows:
   version: 2
   Base Workflow:
     jobs:
-      - default
+      - tests
       - build:
+          filters:
+            branches:
+              only:
+                - main
           requires:
-            - default
+            - tests
       - deploy:
+          filters:
+            branches:
+              only:
+                - main
           requires:
             - build
