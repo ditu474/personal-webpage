@@ -41,6 +41,7 @@ commands:
   build:
     description: "Build angular app and persist files"
     steps:
+      - checkout
       - run:
           name: Create SSR App
           command: npm run build:ssr
