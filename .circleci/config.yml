@@ -77,6 +77,7 @@ jobs:
       - lint
       - test
       - store
+      - build
   deploy:
     docker:
       - image: google/cloud-sdk
@@ -88,6 +89,4 @@ workflows:
   Base Workflow:
     jobs:
       - default
-  Build And Deploy Workflow:
-    jobs:
       - deploy
