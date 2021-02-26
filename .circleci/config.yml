@@ -44,14 +44,20 @@ commands:
       - run:
           name: Create SSR App
           command: npm run build:ssr
-      - run: mkdir /tmp/project
+      - run:
+          name: Move compiled app to workspace
+          command: |
+            mkdir /tmp/project
+            mv dist /tmp/workspace/
+            mv .gcloudignore /tmp/workspace/
+            mv app.yaml /tmp/workspace/
+            mv package.json /tmp/workspace/
       - persist_to_workspace:
           root: /tmp/project
           paths:
             - dist
             - .gcloudignore
             - app.yaml
-            - package-lock.json
             - package.json
   deploy:
     description: "Deploy SSR App to App Engine"
