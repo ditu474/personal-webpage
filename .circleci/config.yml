@@ -47,13 +47,13 @@ commands:
       - run:
           name: Move compiled app to workspace
           command: |
-            mkdir /tmp/project
+            mkdir /tmp/workspace
             mv dist /tmp/workspace/
             mv .gcloudignore /tmp/workspace/
             mv app.yaml /tmp/workspace/
             mv package.json /tmp/workspace/
       - persist_to_workspace:
-          root: /tmp/project
+          root: /tmp/workspace
           paths:
             - dist
             - .gcloudignore
@@ -63,11 +63,11 @@ commands:
     description: "Deploy SSR App to App Engine"
     steps:
       - attach_workspace:
-          at: /tmp/project
+          at: /tmp/workspace
       - run:
           name: Deploy to Google Cloud App Engine
           command: |
-            cd /tmp/project
+            cd /tmp/workspace
             echo ${GCLOUD_SERVICE_KEY} > /tmp/sa_key.json
             gcloud auth activate-service-account --key-file=/tmp/sa_key.json
             rm /tmp/sa_key.json
