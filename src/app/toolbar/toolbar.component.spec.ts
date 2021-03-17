@@ -26,10 +26,10 @@ describe('ToolbarComponent', () => {
     expect(element.querySelectorAll('img')[0]?.alt).toBe('logo');
   });
 
-  it('should display the contact me button after construction', () => {
+  /* it('should display the contact me button after construction', () => {
     const element: HTMLElement = fixture.nativeElement;
     expect(element.querySelector('.primary-nav-el')).toBeTruthy();
-  });
+  }); */
 
   it('should not show the mobile menu after construction', () => {
     const element: HTMLElement = fixture.nativeElement;
